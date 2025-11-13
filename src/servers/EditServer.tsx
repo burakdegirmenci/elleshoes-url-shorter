@@ -39,12 +39,14 @@ const EditServer: FCWithDeps<EditServerProps, EditServerDeps> = withSelectedServ
   return (
     <NoMenuLayout>
       <ServerForm
-        title={<>Edit &quot;{selectedServer.name}&quot;</>}
+        title={<>&quot;{selectedServer.name}&quot; Düzenle</>}
         initialValues={selectedServer}
         onSubmit={handleSubmit}
       >
-        <Button variant="secondary" onClick={goBack}>Cancel</Button>
-        <Button type="submit">Save</Button>
+        <Button variant="secondary" onClick={goBack}>İptal</Button>
+        <Button type="submit" className="rounded-lg px-6 shadow-subtle-md hover:shadow-subtle-lg transition-all">
+          Kaydet
+        </Button>
       </ServerForm>
     </NoMenuLayout>
   );

@@ -33,10 +33,14 @@ export class ErrorHandler extends Component<ErrorHandlerProps, ErrorHandlerState
 
     if (hasError) {
       return (
-        <ErrorLayout title="Oops! This is awkward :S">
-          <p>It seems that something went wrong. Try refreshing the page or just click this button.</p>
+        <ErrorLayout title="Hay aksi! Bir şeyler ters gitti :(">
+          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            Bir sorun oluştu. Sayfayı yenilemeyi deneyin veya bu butona tıklayın.
+          </p>
           <br />
-          <Button size="lg" onClick={() => location.reload()}>Take me back</Button>
+          <Button size="lg" onClick={() => location.reload()} className="rounded-xl px-8 py-3 shadow-subtle-md hover:shadow-subtle-lg transition-all">
+            Geri Dön
+          </Button>
         </ErrorLayout>
       );
     }

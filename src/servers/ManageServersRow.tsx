@@ -22,25 +22,25 @@ const ManageServersRow: FCWithDeps<ManageServersRowProps, ManageServersRowDeps> 
   const { anchor, tooltip } = useTooltip();
 
   return (
-    <Table.Row className="relative">
+    <Table.Row className="relative hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
       {hasAutoConnect && (
-        <Table.Cell columnName="Auto-connect">
+        <Table.Cell columnName="Otomatik Bağlan">
           {server.autoConnect && (
             <>
               <FontAwesomeIcon
                 icon={checkIcon}
-                className="text-lm-brand dark:text-dm-brand"
+                className="text-green-600 dark:text-green-400"
                 {...anchor}
               />
-              <Tooltip {...tooltip}>Auto-connect to this server</Tooltip>
+              <Tooltip {...tooltip}>Bu sunucuya otomatik bağlan</Tooltip>
             </>
           )}
         </Table.Cell>
       )}
-      <Table.Cell className="font-bold" columnName="Name">
-        <Link to={`/server/${server.id}`}>{server.name}</Link>
+      <Table.Cell className="font-semibold text-indigo-700 dark:text-indigo-300" columnName="İsim">
+        <Link to={`/server/${server.id}`} className="hover:underline">{server.name}</Link>
       </Table.Cell>
-      <Table.Cell columnName="Base URL" className="max-lg:border-b-0">{server.url}</Table.Cell>
+      <Table.Cell columnName="Temel URL" className="max-lg:border-b-0 text-gray-600 dark:text-gray-400">{server.url}</Table.Cell>
       <Table.Cell className="text-right max-lg:absolute right-0 -top-1 mx-lg:pt-0">
         <ManageServersRowDropdown server={server} />
       </Table.Cell>

@@ -15,12 +15,12 @@ export const ServersDropdown = ({ servers, selectedServer }: ServersDropdownProp
   return (
     <NavBar.Dropdown buttonContent={(
       <span className="flex items-center gap-1.5">
-        <FontAwesomeIcon icon={serverIcon} /> Servers
+        <FontAwesomeIcon icon={serverIcon} /> Sunucular
       </span>
     )}>
       {serversList.length === 0 ? (
         <Dropdown.Item to="/server/create">
-          <FontAwesomeIcon icon={plusIcon} /> Add a server
+          <FontAwesomeIcon icon={plusIcon} /> Sunucu Ekle
         </Dropdown.Item>
       ) : (
         <>
@@ -31,7 +31,7 @@ export const ServersDropdown = ({ servers, selectedServer }: ServersDropdownProp
           ))}
           <Dropdown.Separator />
           <Dropdown.Item to="/manage-servers">
-            <FontAwesomeIcon icon={serverIcon} /> Manage servers
+            <FontAwesomeIcon icon={serverIcon} /> Sunucuları Yönet
           </Dropdown.Item>
         </>
       )}

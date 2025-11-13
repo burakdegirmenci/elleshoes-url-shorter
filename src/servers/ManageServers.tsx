@@ -48,31 +48,33 @@ const ManageServers: FCWithDeps<ManageServersProps, ManageServersDeps> = ({ serv
 
       <div className="flex flex-col md:flex-row gap-2">
         <div className="flex gap-2">
-          <ImportServersBtn className="flex-grow" onError={setErrorImporting}>Import servers</ImportServersBtn>
+          <ImportServersBtn className="flex-grow rounded-lg shadow-subtle hover:shadow-subtle-md transition-all" onError={setErrorImporting}>
+            Sunucuları İçe Aktar
+          </ImportServersBtn>
           {filteredServers.length > 0 && (
-            <Button variant="secondary" className="flex-grow" onClick={async () => serversExporter.exportServers()}>
-              <FontAwesomeIcon icon={exportIcon} widthAuto /> Export servers
+            <Button variant="secondary" className="flex-grow rounded-lg shadow-subtle hover:shadow-subtle-md transition-all" onClick={async () => serversExporter.exportServers()}>
+              <FontAwesomeIcon icon={exportIcon} widthAuto /> Sunucuları Dışa Aktar
             </Button>
           )}
         </div>
-        <Button className="md:ml-auto" to="/server/create">
-          <FontAwesomeIcon icon={plusIcon} widthAuto /> Add a server
+        <Button className="md:ml-auto rounded-lg shadow-subtle-md hover:shadow-subtle-lg transition-all" to="/server/create">
+          <FontAwesomeIcon icon={plusIcon} widthAuto /> Sunucu Ekle
         </Button>
       </div>
 
-      <SimpleCard className="card">
+      <SimpleCard className="card rounded-xl shadow-subtle-md overflow-hidden">
         <Table header={(
-          <Table.Row>
+          <Table.Row className="bg-gray-50 dark:bg-slate-800">
             {hasAutoConnect && (
-              <Table.Cell className="w-[35px]"><span className="sr-only">Auto-connect</span></Table.Cell>
+              <Table.Cell className="w-[35px]"><span className="sr-only">Otomatik Bağlan</span></Table.Cell>
             )}
-            <Table.Cell>Name</Table.Cell>
-            <Table.Cell>Base URL</Table.Cell>
-            <Table.Cell><span className="sr-only">Options</span></Table.Cell>
+            <Table.Cell className="font-semibold">İsim</Table.Cell>
+            <Table.Cell className="font-semibold">Temel URL</Table.Cell>
+            <Table.Cell><span className="sr-only">Seçenekler</span></Table.Cell>
           </Table.Row>
         )}>
           {!filteredServers.length && (
-            <Table.Row className="text-center"><Table.Cell colSpan={4}>No servers found.</Table.Cell></Table.Row>
+            <Table.Row className="text-center"><Table.Cell colSpan={4} className="py-8 text-gray-500">Sunucu bulunamadı.</Table.Cell></Table.Row>
           )}
           {filteredServers.map((server) => (
             <ManageServersRow key={server.id} server={server} hasAutoConnect={hasAutoConnect} />
@@ -82,7 +84,7 @@ const ManageServers: FCWithDeps<ManageServersProps, ManageServersDeps> = ({ serv
 
       {errorImporting && (
         <div>
-          <Result variant="error">The servers could not be imported. Make sure the format is correct.</Result>
+          <Result variant="error">Sunucular içe aktarılamadı. Lütfen formatın doğru olduğundan emin olun.</Result>
         </div>
       )}
     </NoMenuLayout>

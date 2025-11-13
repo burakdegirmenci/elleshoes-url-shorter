@@ -1,0 +1,1204 @@
+diff --git a/node_modules/@shlinkio/shlink-web-component/dist/index-BI25CfhS.js b/node_modules/@shlinkio/shlink-web-component/dist/index-BI25CfhS.js
+index 9d75b52..8997dd2 100644
+--- a/node_modules/@shlinkio/shlink-web-component/dist/index-BI25CfhS.js
++++ b/node_modules/@shlinkio/shlink-web-component/dist/index-BI25CfhS.js
+@@ -13,7 +13,7 @@ const Le = (e, s, l = 1) => A(l, e + 1).map(s), G = (e) => Array.isArray(e) && e
+   return `${l.reverse().join(", ")} and ${s}`;
+ }, R = "[&]:p-0 [&]:md:w-1/4 [&]:rounded-none", K = ({ onChange: e, className: s }) => {
+   const l = u("qrCodes", N), { color: i, bgColor: n } = l;
+-  return /* @__PURE__ */ r(g, { title: "Colors", className: s, bodyClassName: "flex flex-col gap-4", children: [
++  return /* @__PURE__ */ r(g, { title: "Renkler", className: s, bodyClassName: "flex flex-col gap-4", children: [
+     /* @__PURE__ */ t(
+       v,
+       {
+@@ -116,7 +116,7 @@ const Le = (e, s, l = 1) => A(l, e + 1).map(s), G = (e) => Array.isArray(e) && e
+   ] });
+ }, se = ({ onChange: e, className: s }) => {
+   const l = u("qrCodes", N), { size: i, margin: n } = l;
+-  return /* @__PURE__ */ r(g, { title: "Size", className: s, bodyClassName: "flex flex-col gap-4", children: [
++  return /* @__PURE__ */ r(g, { title: "Boyut", className: s, bodyClassName: "flex flex-col gap-4", children: [
+     /* @__PURE__ */ t(
+       v,
+       {
+@@ -170,55 +170,55 @@ const Le = (e, s, l = 1) => A(l, e + 1).map(s), G = (e) => Array.isArray(e) && e
+   s && /* @__PURE__ */ t(C, { size: "sm", "data-testid": l ? `${l}-help-text` : "help-text", className: "pl-10", children: s })
+ ] }), le = ({ toggleRealTimeUpdates: e, onIntervalChange: s }) => {
+   const { enabled: l, interval: i } = u("realTimeUpdates", { enabled: !0 });
+-  return /* @__PURE__ */ r(g, { title: "Real-time updates", className: "h-full", bodyClassName: "flex flex-col gap-y-4", children: [
++  return /* @__PURE__ */ r(g, { title: "Gerçek zamanlı güncellemeler", className: "h-full", bodyClassName: "flex flex-col gap-y-4", children: [
+     /* @__PURE__ */ t(
+       f,
+       {
+         checked: l,
+         onChange: e,
+         helpText: /* @__PURE__ */ r(h, { children: [
+-          "Real-time updates are currently being ",
+-          /* @__PURE__ */ t("b", { children: l ? "processed" : "ignored" }),
++          "Gerçek zamanlı güncellemeler şu anda ",
++          /* @__PURE__ */ t("b", { children: l ? "işleniyor" : "yok sayılıyor" }),
+           "."
+         ] }),
+-        children: "Enable or disable real-time updates."
++        children: "Gerçek zamanlı güncellemeleri etkinleştirin veya devre dışı bırakın."
+       }
+     ),
+     /* @__PURE__ */ r("div", { children: [
+       /* @__PURE__ */ t(
+         v,
+         {
+-          label: /* @__PURE__ */ t("span", { className: U({ "dark:text-gray-400": !l }), children: "Real-time updates frequency (in minutes):" }),
++          label: /* @__PURE__ */ t("span", { className: U({ "dark:text-gray-400": !l }), children: "Gerçek zamanlı güncelleme sıklığı (dakika):" }),
+           type: "number",
+           min: 0,
+-          placeholder: "Immediate",
++          placeholder: "Anında",
+           disabled: !l,
+           value: `${i ?? ""}`,
+           onChange: ({ target: n }) => s(Number(n.value))
+         }
+       ),
+       l && /* @__PURE__ */ t(C, { size: "sm", children: i ? /* @__PURE__ */ r("span", { children: [
+-        "Updates will be reflected in the UI every ",
++        "Güncellemeler kullanıcı arayüzüne her ",
+         /* @__PURE__ */ t("b", { children: i }),
+-        " minute",
++        " dakikada",
+         i > 1 && "s",
+         "."
+-      ] }) : "Updates will be reflected in the UI as soon as they happen." })
++      ] }) : "Güncellemeler gerçekleşir gerçekleşmez kullanıcı arayüzüne yansıtılacaktır." })
+     ] })
+   ] });
+-}, L = (e) => e === "includes" ? "Suggest tags including input" : "Suggest tags starting with input", re = (e) => e === "includes" ? /* @__PURE__ */ r(h, { children: [
+-  "The list of suggested tags will contain those ",
+-  /* @__PURE__ */ t("b", { children: "including" }),
+-  " provided input."
++}, L = (e) => e === "includes" ? "Girdiyi içeren etiketleri öner" : "Girdi ile başlayan etiketleri öner", re = (e) => e === "includes" ? /* @__PURE__ */ r(h, { children: [
++  "Önerilen etiketler listesi, sağlanan girdiye ",
++  /* @__PURE__ */ t("b", { children: "içeren" }),
++  " etiketleri içerecektir."
+ ] }) : /* @__PURE__ */ r(h, { children: [
+-  "The list of suggested tags will contain those ",
+-  /* @__PURE__ */ t("b", { children: "starting with" }),
+-  " provided input."
++  "Önerilen etiketler listesi, sağlanan girdiye ",
++  /* @__PURE__ */ t("b", { children: "ile başlayan" }),
++  " etiketleri içerecektir."
+ ] }), ie = ({ onChange: e }) => {
+   const s = u("shortUrlCreation"), l = (i) => () => e(
+     { ...s, tagFilteringMode: i }
+   );
+-  return /* @__PURE__ */ r(g, { title: "Short URLs form", className: "card", bodyClassName: "flex flex-col gap-4", children: [
++  return /* @__PURE__ */ r(g, { title: "Kısa URL'ler formu", className: "card", bodyClassName: "flex flex-col gap-4", children: [
+     /* @__PURE__ */ t(
+       f,
+       {
+@@ -226,17 +226,17 @@ const Le = (e, s, l = 1) => A(l, e + 1).map(s), G = (e) => Array.isArray(e) && e
+         checked: s?.forwardQuery ?? !0,
+         onChange: (i) => e({ ...s, forwardQuery: i }),
+         helpText: /* @__PURE__ */ r(h, { children: [
+-          "The initial state of the ",
++          "Başlangıç durumu: ",
+           /* @__PURE__ */ t("b", { children: "Forward query params on redirect" }),
+-          " checkbox will be ",
++          " onay kutusu ",
+           /* @__PURE__ */ t("b", { children: s?.forwardQuery ?? !0 ? "checked" : "unchecked" }),
+           "."
+         ] }),
+-        children: "Make all new short URLs forward their query params to the long URL."
++        children: "Tüm yeni kısa URL'lerin sorgu parametrelerini uzun URL'ye iletmesini sağla."
+       }
+     ),
+     /* @__PURE__ */ r("div", { className: "flex flex-col", children: [
+-      /* @__PURE__ */ t(S, { className: "mb-1.5", children: "Tag suggestions search mode:" }),
++      /* @__PURE__ */ t(S, { className: "mb-1.5", children: "Etiket önerisi arama modu:" }),
+       /* @__PURE__ */ r(
+         d,
+         {
+@@ -266,14 +266,14 @@ const Le = (e, s, l = 1) => A(l, e + 1).map(s), G = (e) => Array.isArray(e) && e
+     ] })
+   ] });
+ }, ne = {
+-  dateCreated: "Created at",
+-  shortCode: "Short URL",
+-  longUrl: "Long URL",
+-  title: "Title",
+-  visits: "Visits"
++  dateCreated: "Oluşturulma tarihi",
++  shortCode: "Kısa URL",
++  longUrl: "Uzun URL",
++  title: "Başlık",
++  visits: "Ziyaretler"
+ }, ae = ({ onChange: e, defaultOrdering: s }) => {
+   const l = u("shortUrlsList"), i = l?.confirmDeletions ?? !0;
+-  return /* @__PURE__ */ r(g, { title: "Short URLs list", className: "card", bodyClassName: "flex flex-col gap-4", children: [
++  return /* @__PURE__ */ r(g, { title: "Kısa URL'ler listesi", className: "card", bodyClassName: "flex flex-col gap-4", children: [
+     /* @__PURE__ */ t(
+       f,
+       {
+@@ -303,12 +303,12 @@ const Le = (e, s, l = 1) => A(l, e + 1).map(s), G = (e) => Array.isArray(e) && e
+     ] })
+   ] });
+ }, oe = {
+-  tag: "Tag",
++  tag: "Etiket",
+   shortUrls: "Short URLs",
+-  visits: "Visits"
++  visits: "Ziyaretler"
+ }, ce = ({ onChange: e }) => {
+   const s = u("tags", {});
+-  return /* @__PURE__ */ t(g, { title: "Tags", className: "card", children: /* @__PURE__ */ r("div", { className: "flex flex-col gap-1.5", children: [
++  return /* @__PURE__ */ t(g, { title: "Etiketler", className: "card", children: /* @__PURE__ */ r("div", { className: "flex flex-col gap-1.5", children: [
+     /* @__PURE__ */ t(S, { children: "Default ordering for tags list:" }),
+     /* @__PURE__ */ t(
+       F,
+@@ -322,7 +322,7 @@ const Le = (e, s, l = 1) => A(l, e + 1).map(s), G = (e) => Array.isArray(e) && e
+   ] }) });
+ }, de = ({ onChange: e, _matchMedia: s }) => {
+   const l = u("ui"), i = I(() => l?.theme ?? V(s), [l?.theme, s]);
+-  return /* @__PURE__ */ r(g, { title: "User interface", bodyClassName: "flex justify-between items-center", children: [
++  return /* @__PURE__ */ r(g, { title: "Kullanıcı arayüzü", bodyClassName: "flex justify-between items-center", children: [
+     /* @__PURE__ */ t(
+       f,
+       {
+@@ -366,7 +366,7 @@ const he = ({ onChange: e }) => {
+       o[x] = !1;
+     }), e({ columns: o });
+   }, [l, e]);
+-  return /* @__PURE__ */ r(g, { title: "Visits list", children: [
++  return /* @__PURE__ */ r(g, { title: "Ziyaretler listesi", children: [
+     /* @__PURE__ */ t("p", { className: "mb-2", children: "Columns to show in visits table:" }),
+     /* @__PURE__ */ t("ul", { className: "flex flex-col gap-y-1", children: Object.entries(k).map(([n, c]) => /* @__PURE__ */ t("li", { children: /* @__PURE__ */ t(f, { checked: l[n], onChange: (o) => i(n, o), children: /* @__PURE__ */ r("span", { className: "inline-flex gap-2", children: [
+       c,
+@@ -398,7 +398,7 @@ const he = ({ onChange: e }) => {
+     ),
+     [e, s]
+   );
+-  return /* @__PURE__ */ r(g, { title: "Visits", className: "card", bodyClassName: "flex flex-col gap-4", children: [
++  return /* @__PURE__ */ r(g, { title: "Ziyaretler", className: "card", bodyClassName: "flex flex-col gap-4", children: [
+     /* @__PURE__ */ t(
+       f,
+       {
+@@ -432,7 +432,7 @@ const he = ({ onChange: e }) => {
+       /* @__PURE__ */ t(
+         ue,
+         {
+-          allText: "All visits",
++          allText: "Tüm ziyaretler",
+           active: D(s),
+           onChange: (i) => l({ defaultInterval: i })
+         }
+@@ -462,11 +462,11 @@ const he = ({ onChange: e }) => {
+   );
+   return /* @__PURE__ */ r(fe, { value: e, children: [
+     /* @__PURE__ */ r(p, { className: "mb-4 sticky top-(--header-height) z-2", children: [
+-      /* @__PURE__ */ t(p.Pill, { to: "../general", children: "General" }),
+-      /* @__PURE__ */ t(p.Pill, { to: "../short-urls", children: "Short URLs" }),
+-      /* @__PURE__ */ t(p.Pill, { to: "../visits", children: "Visits" }),
+-      /* @__PURE__ */ t(p.Pill, { to: "../tags", children: "Tags" }),
+-      /* @__PURE__ */ t(p.Pill, { to: "../qr-codes", children: "QR codes" })
++      /* @__PURE__ */ t(p.Pill, { to: "../general", children: "Genel" }),
++      /* @__PURE__ */ t(p.Pill, { to: "../short-urls", children: "Kısa URL'ler" }),
++      /* @__PURE__ */ t(p.Pill, { to: "../visits", children: "Ziyaretler" }),
++      /* @__PURE__ */ t(p.Pill, { to: "../tags", children: "Etiketler" }),
++      /* @__PURE__ */ t(p.Pill, { to: "../qr-codes", children: "QR Kodları" })
+     ] }),
+     /* @__PURE__ */ r(B, { children: [
+       /* @__PURE__ */ t(
+diff --git a/node_modules/@shlinkio/shlink-web-component/dist/index.js b/node_modules/@shlinkio/shlink-web-component/dist/index.js
+index a3fd070..64dbac4 100644
+--- a/node_modules/@shlinkio/shlink-web-component/dist/index.js
++++ b/node_modules/@shlinkio/shlink-web-component/dist/index.js
+@@ -138,7 +138,7 @@ const Oe = (e, t) => (
+       e
+     ] }),
+     type: "url",
+-    placeholder: "No redirect"
++    placeholder: "Yönlendirme yok"
+   }
+ ), Tl = ({ isOpen: e, onClose: t, domain: r, editDomainRedirects: n }) => {
+   const [o, s] = M(r.redirects?.baseUrlRedirect ?? ""), [i, c] = M(r.redirects?.regular404Redirect ?? ""), [l, u] = M(
+@@ -164,11 +164,11 @@ const Oe = (e, t) => (
+   return /* @__PURE__ */ a(
+     Ae,
+     {
+-      title: `Edit redirects for ${r.domain}`,
++      title: `Alan adı için yönlendirmeleri düzenle: ${r.domain}`,
+       open: e,
+       onClose: t,
+       onConfirm: m,
+-      confirmText: g ? "Saving..." : "Save",
++      confirmText: g ? "Kaydediliyor..." : "Kaydet",
+       confirmDisabled: g,
+       children: /* @__PURE__ */ d("div", { className: "flex flex-col gap-y-3", children: [
+         /* @__PURE__ */ a(
+@@ -176,8 +176,8 @@ const Oe = (e, t) => (
+           {
+             value: o,
+             onChange: s,
+-            infoTitle: `Visitors accessing the base url, as in https://${r.domain}/, will be redirected to this URL.`,
+-            children: "Base URL"
++            infoTitle: `Bu alan adına erişen ziyaretçiler, as in https://${r.domain}/, bu URL'ye yönlendirilecektir.`,
++            children: "Ana URL"
+           }
+         ),
+         /* @__PURE__ */ a(
+@@ -185,8 +185,8 @@ const Oe = (e, t) => (
+           {
+             value: i,
+             onChange: c,
+-            infoTitle: `Visitors accessing a url not matching a short URL pattern, as in https://${r.domain}/???/[...], will be redirected to this URL.`,
+-            children: "Regular 404"
++            infoTitle: `Kısa URL kalıbıyla eşleşmeyen bir URL'ye erişen ziyaretçiler, as in https://${r.domain}/???/[...], bu URL'ye yönlendirilecektir.`,
++            children: "Normal 404"
+           }
+         ),
+         /* @__PURE__ */ a(
+@@ -194,8 +194,8 @@ const Oe = (e, t) => (
+           {
+             value: l,
+             onChange: u,
+-            infoTitle: "Visitors accessing a url matching a short URL pattern, but not matching an existing short code, will be redirected to this URL.",
+-            children: "Invalid short URL"
++            infoTitle: "Kısa URL kalıbıyla eşleşen ancak mevcut bir kısa kodla eşleşmeyen bir URL'ye erişen ziyaretçiler, bu URL'ye yönlendirilecektir.",
++            children: "Geçersiz kısa URL"
+           }
+         )
+       ] })
+@@ -281,7 +281,7 @@ const Oe = (e, t) => (
+     ] }) })
+   ] });
+ }, pr = ({ fallback: e }) => /* @__PURE__ */ d("span", { className: "text-gray-500 dark:text-gray-400", children: [
+-  !e && /* @__PURE__ */ a("small", { children: "No redirect" }),
++  !e && /* @__PURE__ */ a("small", { children: "Yönlendirme yok" }),
+   e && /* @__PURE__ */ d(E, { children: [
+     e,
+     " ",
+@@ -299,14 +299,14 @@ const Oe = (e, t) => (
+         "data-testid": "default-domain-icon"
+       }
+     ),
+-    /* @__PURE__ */ a(_e, { ...t, children: "Default domain foo" })
++    /* @__PURE__ */ a(_e, { ...t, children: "Varsayılan alan adı foo" })
+   ] });
+ }, Fl = ({ domain: e, editDomainRedirects: t, checkDomainHealth: r, defaultRedirects: n }) => {
+   const { domain: o, isDefault: s, redirects: i, status: c } = e;
+   return K(() => {
+     r(e.domain);
+   }, [r, e.domain]), /* @__PURE__ */ d(S.Row, { className: "relative", children: [
+-    /* @__PURE__ */ a(S.Cell, { columnName: "Is default domain:", children: s && /* @__PURE__ */ a(Il, {}) }),
++    /* @__PURE__ */ a(S.Cell, { columnName: "Varsayılan alan adı mı:", children: s && /* @__PURE__ */ a(Il, {}) }),
+     /* @__PURE__ */ a(S.Cell, { columnName: "Domain:", children: /* @__PURE__ */ a("b", { children: o }) }),
+     /* @__PURE__ */ a(S.Cell, { columnName: "Base path redirect:", children: i?.baseUrlRedirect ?? /* @__PURE__ */ a(pr, { fallback: n?.baseUrlRedirect }) }),
+     /* @__PURE__ */ a(S.Cell, { columnName: "Regular 404 redirect:", children: i?.regular404Redirect ?? /* @__PURE__ */ a(pr, { fallback: n?.regular404Redirect }) }),
+@@ -316,11 +316,11 @@ const Oe = (e, t) => (
+   ] });
+ }, Vn = [
+   {
+-    value: "Is default domain",
++    value: "Varsayılan alan adı",
+     isHidden: !0
+   },
+   {
+-    value: "Domain",
++    value: "Alan Adı",
+     isHidden: !1
+   },
+   {
+@@ -348,9 +348,9 @@ const Oe = (e, t) => (
+   return i ? /* @__PURE__ */ a($e, { loading: !0 }) : /* @__PURE__ */ a(Xr, { value: g, children: /* @__PURE__ */ d("div", { className: "flex flex-col gap-y-4", children: [
+     /* @__PURE__ */ a(Yt, { onChange: t }),
+     /* @__PURE__ */ a(qr, { type: "domains" }),
+-    c && /* @__PURE__ */ a(ie, { variant: "error", children: /* @__PURE__ */ a(xe, { errorData: l, fallbackMessage: "Error loading domains :(" }) }),
++    c && /* @__PURE__ */ a(ie, { variant: "error", children: /* @__PURE__ */ a(xe, { errorData: l, fallbackMessage: "Alan adları yüklenirken hata oluştu :(" }) }),
+     !c && /* @__PURE__ */ a(Y, { className: "card", children: /* @__PURE__ */ d(S, { header: /* @__PURE__ */ a(S.Row, { children: Vn.map((h, m) => /* @__PURE__ */ a(S.Cell, { children: /* @__PURE__ */ a("span", { className: h.isHidden ? "sr-only" : void 0, children: h.value }) }, m)) }), children: [
+-      o.length < 1 && /* @__PURE__ */ a(S.Row, { children: /* @__PURE__ */ a(S.Cell, { colSpan: Vn.length, className: "text-center", children: "No results found" }) }),
++      o.length < 1 && /* @__PURE__ */ a(S.Row, { children: /* @__PURE__ */ a(S.Cell, { colSpan: Vn.length, className: "text-center", children: "Sonuç bulunamadı" }) }),
+       o.map((h) => /* @__PURE__ */ a(
+         Fl,
+         {
+@@ -676,7 +676,7 @@ const at = we(
+       /* @__PURE__ */ a(
+         Fn,
+         {
+-          title: "Visits",
++          title: "Ziyaretler",
+           link: `${f}/non-orphan-visits`,
+           excludeBots: p?.excludeBots ?? !1,
+           loading: g,
+@@ -686,21 +686,21 @@ const at = we(
+       /* @__PURE__ */ a(
+         Fn,
+         {
+-          title: "Orphan visits",
++          title: "Sahipsiz Ziyaretler",
+           link: `${f}/orphan-visits`,
+           excludeBots: p?.excludeBots ?? !1,
+           loading: g,
+           visitsSummary: m
+         }
+       ),
+-      /* @__PURE__ */ a(Tr, { title: "Short URLs", link: `${f}/list-short-urls/1`, children: c ? "Loading..." : Q(l?.pagination.totalItems ?? 0) }),
+-      /* @__PURE__ */ a(Tr, { title: "Tags", link: `${f}/manage-tags`, children: u ? "Loading..." : Q(r.tags.length) })
++      /* @__PURE__ */ a(Tr, { title: "Kısa URL'ler", link: `${f}/list-short-urls/1`, children: c ? "Yükleniyor..." : Q(l?.pagination.totalItems ?? 0) }),
++      /* @__PURE__ */ a(Tr, { title: "Etiketler", link: `${f}/manage-tags`, children: u ? "Yükleniyor..." : Q(r.tags.length) })
+     ] }),
+     /* @__PURE__ */ a(
+       Ln,
+       {
+-        title: "Create a short URL",
+-        titleLinkText: "Advanced options",
++        title: "Kısa URL Oluştur",
++        titleLinkText: "Gelişmiş seçenekler",
+         titleLink: `${f}/create-short-url`,
+         children: /* @__PURE__ */ a(i, { basicMode: !0 })
+       }
+@@ -708,8 +708,8 @@ const at = we(
+     /* @__PURE__ */ a(
+       Ln,
+       {
+-        title: "Recently created URLs",
+-        titleLinkText: "See all",
++        title: "Son Oluşturulan URL'ler",
++        titleLinkText: "Tümünü gör",
+         titleLink: `${f}/list-short-urls/1`,
+         children: /* @__PURE__ */ a(
+           s,
+@@ -2440,7 +2440,7 @@ const ir = () => {
+   return /* @__PURE__ */ d(
+     Ar,
+     {
+-      label: "Device type:",
++      label: "Cihaz tipi:",
+       value: e ?? void 0,
+       onChange: (o) => t(o.target.value),
+       hiddenRequired: !0,
+@@ -2467,7 +2467,7 @@ const ir = () => {
+ ), od = ({
+   language: e,
+   onLanguageChange: t
+-}) => /* @__PURE__ */ a(rn, { value: e, onValueChange: t, label: "Language", placeholder: "en-US / en" }), Cr = ({
++}) => /* @__PURE__ */ a(rn, { value: e, onValueChange: t, label: "Dil", placeholder: "tr-TR / tr" }), Cr = ({
+   name: e,
+   value: t,
+   onNameChange: r,
+@@ -2476,7 +2476,7 @@ const ir = () => {
+   /* @__PURE__ */ a(
+     He,
+     {
+-      label: "Param name:",
++      label: "Parametre adı:",
+       value: e ?? "",
+       onChange: (o) => r(o.target.value),
+       placeholder: "hello",
+@@ -2486,20 +2486,20 @@ const ir = () => {
+   typeof t == "string" && /* @__PURE__ */ a(
+     He,
+     {
+-      label: "Param value:",
++      label: "Parametre değeri:",
+       value: t,
+       onChange: (o) => n(o.target.value),
+       placeholder: "world",
+       hiddenRequired: !0
+     }
+   )
+-] }), sd = ({ ipAddress: e, onIpAddressChange: t }) => /* @__PURE__ */ a(rn, { value: e, onValueChange: t, label: "IP address", placeholder: "192.168.1.10" }), id = ({
++] }), sd = ({ ipAddress: e, onIpAddressChange: t }) => /* @__PURE__ */ a(rn, { value: e, onValueChange: t, label: "IP adresi", placeholder: "192.168.1.10" }), id = ({
+   countryCode: e,
+   onCountryCodeChange: t
+ }) => /* @__PURE__ */ d(
+   Ar,
+   {
+-    label: "Country:",
++    label: "Ülke:",
+     value: e ?? void 0,
+     onChange: (r) => t(r.target.value),
+     hiddenRequired: !0,
+@@ -2508,7 +2508,7 @@ const ir = () => {
+       Object.entries(nd).map(([r, n]) => /* @__PURE__ */ a("option", { value: r, children: n }, r))
+     ]
+   }
+-), ld = ({ cityName: e, onCityNameChange: t }) => /* @__PURE__ */ a(rn, { value: e, onValueChange: t, label: "City name", placeholder: "New York" }), cd = ({ condition: e, onConditionChange: t, onDelete: r }) => {
++), ld = ({ cityName: e, onCityNameChange: t }) => /* @__PURE__ */ a(rn, { value: e, onValueChange: t, label: "Şehir adı", placeholder: "İstanbul" }), cd = ({ condition: e, onConditionChange: t, onDelete: r }) => {
+   const n = D((g) => t({
+     type: g,
+     matchValue: null,
+@@ -2549,7 +2549,7 @@ const ir = () => {
+       /* @__PURE__ */ a(
+         Ar,
+         {
+-          label: "Type:",
++          label: "Tip:",
+           value: e.type,
+           onChange: (g) => n(g.target.value),
+           hiddenRequired: !0,
+@@ -2616,20 +2616,20 @@ const ir = () => {
+     Ae,
+     {
+       size: "xl",
+-      title: "Redirect rule",
++      title: "Yönlendirme kuralı",
+       open: e,
+       onClose: t,
+       onClosed: h,
+       onConfirm: i,
+       confirmDisabled: o.conditions.length === 0,
+-      confirmText: "Confirm",
++      confirmText: "Onayla",
+       children: [
+         /* @__PURE__ */ a(
+           He,
+           {
+-            label: "Long URL:",
++            label: "Uzun URL:",
+             type: "url",
+-            placeholder: "https://www.example.com",
++            placeholder: "https://www.ornek.com",
+             value: o.longUrl,
+             onChange: (m) => s((f) => ({ ...f, longUrl: m.target.value })),
+             hiddenRequired: !0,
+@@ -2638,10 +2638,10 @@ const ir = () => {
+         ),
+         /* @__PURE__ */ a("hr", {}),
+         /* @__PURE__ */ d("div", { className: "flex justify-between", children: [
+-          /* @__PURE__ */ a("b", { children: "Conditions:" }),
++          /* @__PURE__ */ a("b", { children: "Koşullar:" }),
+           /* @__PURE__ */ a(_, { className: "[&]:px-1.5", variant: "secondary", "aria-label": "Add condition", onClick: c, children: /* @__PURE__ */ a(b, { icon: Da }) })
+         ] }),
+-        o.conditions.length === 0 && /* @__PURE__ */ a("div", { className: "text-center", children: /* @__PURE__ */ a("i", { children: "Add conditions..." }) }),
++        o.conditions.length === 0 && /* @__PURE__ */ a("div", { className: "text-center", children: /* @__PURE__ */ a("i", { children: "Koşul ekle..." }) }),
+         o.conditions.length > 0 && /* @__PURE__ */ a("div", { className: "pr-3 mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: o.conditions.map((m, f) => /* @__PURE__ */ a(
+           cd,
+           {
+@@ -2685,41 +2685,41 @@ const ir = () => {
+       ] }),
+       /* @__PURE__ */ d("div", { className: "grow", children: [
+         /* @__PURE__ */ d("div", { className: "mb-2", children: [
+-          /* @__PURE__ */ a("b", { children: "Long URL:" }),
++          /* @__PURE__ */ a("b", { children: "Uzun URL:" }),
+           " ",
+           /* @__PURE__ */ a(pe, { href: r.longUrl, "data-testid": "rule-long-url" })
+         ] }),
+         /* @__PURE__ */ d("div", { className: "flex flex-col lg:flex-row gap-2", children: [
+-          /* @__PURE__ */ a("b", { children: "Conditions:" }),
++          /* @__PURE__ */ a("b", { children: "Koşullar:" }),
+           r.conditions.map((g, h) => /* @__PURE__ */ d(
+             "div",
+             {
+               className: "rounded-sm bg-gray-600 px-1 text-white",
+               children: [
+                 g.type === "device" && /* @__PURE__ */ d(E, { children: [
+-                  "Device is ",
++                  "Cihaz: ",
+                   g.matchValue
+                 ] }),
+                 g.type === "language" && /* @__PURE__ */ d(E, { children: [
+                   g.matchValue,
+-                  " language is accepted"
++                  " dili kabul edilir"
+                 ] }),
+                 g.type === "query-param" && /* @__PURE__ */ d(E, { children: [
+-                  "Query string contains ",
++                  "Sorgu dizgisi içeriği: ",
+                   g.matchKey,
+                   "=",
+                   g.matchValue
+                 ] }),
+                 g.type === "ip-address" && /* @__PURE__ */ d(E, { children: [
+-                  "IP address matches ",
++                  "IP adresi: ",
+                   g.matchValue
+                 ] }),
+                 g.type === "geolocation-country-code" && /* @__PURE__ */ d(E, { children: [
+-                  "Country code is ",
++                  "Ülke kodu: ",
+                   g.matchValue
+                 ] }),
+                 g.type === "geolocation-city-name" && /* @__PURE__ */ d(E, { children: [
+-                  "City name is ",
++                  "Şehir adı: ",
+                   g.matchValue
+                 ] })
+               ]
+@@ -2789,7 +2789,7 @@ const ir = () => {
+       /* @__PURE__ */ d("h2", { className: "sm:flex justify-between items-center", children: [
+         /* @__PURE__ */ a(lr, {}),
+         /* @__PURE__ */ d("div", { className: "text-center grow", children: [
+-          n.loading && /* @__PURE__ */ a(E, { children: "Loading..." }),
++          n.loading && /* @__PURE__ */ a(E, { children: "Yükleniyor..." }),
+           !n.loading && /* @__PURE__ */ d("small", { children: [
+             "Redirect rules for ",
+             /* @__PURE__ */ a(pe, { href: u?.shortUrl ?? "" })
+@@ -2798,9 +2798,9 @@ const ir = () => {
+       ] }),
+       /* @__PURE__ */ a("hr", {}),
+       /* @__PURE__ */ d("div", { children: [
+-        /* @__PURE__ */ a("p", { children: "Configure dynamic conditions that will be checked at runtime." }),
++        /* @__PURE__ */ a("p", { children: "Çalışma zamanında kontrol edilecek dinamik koşulları yapılandırın." }),
+         /* @__PURE__ */ d("p", { children: [
+-          "If no conditions match, visitors will be redirected to: ",
++          "Hiçbir koşul eşleşmezse, ziyaretçiler şuraya yönlendirilecek: ",
+           /* @__PURE__ */ a(pe, { href: e.defaultLongUrl ?? "" })
+         ] })
+       ] })
+@@ -2811,7 +2811,7 @@ const ir = () => {
+     ] }) }),
+     /* @__PURE__ */ d("form", { onSubmit: P, children: [
+       e.loading && /* @__PURE__ */ a($e, { loading: !0 }),
+-      h.length === 0 && !e.loading && /* @__PURE__ */ a(Y, { className: "text-center", children: /* @__PURE__ */ a("i", { children: "This short URL has no dynamic redirect rules" }) }),
++      h.length === 0 && !e.loading && /* @__PURE__ */ a(Y, { className: "text-center", children: /* @__PURE__ */ a("i", { children: "Bu kısa URL'nin dinamik yönlendirme kuralı yok" }) }),
+       /* @__PURE__ */ a("div", { className: "flex flex-col gap-2", ref: g, children: h.map((k, N) => /* @__PURE__ */ a(
+         dd,
+         {
+@@ -2825,16 +2825,16 @@ const ir = () => {
+         },
+         `${k.longUrl}_${N}`
+       )) }),
+-      /* @__PURE__ */ a("div", { className: "text-center mt-4", children: /* @__PURE__ */ a(_, { type: "submit", inline: !0, className: "max-md:w-full", disabled: f, "data-testid": "save-button", children: f ? "Saving..." : "Save rules" }) })
++      /* @__PURE__ */ a("div", { className: "text-center mt-4", children: /* @__PURE__ */ a(_, { type: "submit", inline: !0, className: "max-md:w-full", disabled: f, "data-testid": "save-button", children: f ? "Kaydediliyor..." : "Kuralları kaydet" }) })
+     ] }),
+     p && /* @__PURE__ */ a(ie, { variant: "error", children: /* @__PURE__ */ a(
+       xe,
+       {
+         errorData: p,
+-        fallbackMessage: "An error occurred while saving short URL redirect rules :("
++        fallbackMessage: "Kısa URL yönlendirme kuralları kaydedilirken bir hata oluştu :("
+       }
+     ) }),
+-    C && /* @__PURE__ */ a(ie, { variant: "success", children: "Redirect rules properly saved." }),
++    C && /* @__PURE__ */ a(ie, { variant: "success", children: "Yönlendirme kuralları başarıyla kaydedildi." }),
+     /* @__PURE__ */ a(co, { isOpen: v, onClose: w, onSave: x })
+   ] });
+ }, gd = (e, t) => {
+@@ -2861,7 +2861,7 @@ const ir = () => {
+   }, [t]), n)
+     return /* @__PURE__ */ d(ie, { variant: "error", className: "mt-4 relative", children: [
+       r && /* @__PURE__ */ a("div", { className: "absolute right-1.5 top-1.5", "data-testid": "error-close-button", children: /* @__PURE__ */ a(Rr, { onClick: t }) }),
+-      /* @__PURE__ */ a(xe, { errorData: e.errorData, fallbackMessage: "An error occurred while creating the URL :(" })
++      /* @__PURE__ */ a(xe, { errorData: e.errorData, fallbackMessage: "URL oluşturulurken bir hata oluştu :(" })
+     ] });
+   if (!o)
+     return null;
+@@ -2870,7 +2870,7 @@ const ir = () => {
+     r && /* @__PURE__ */ a("div", { className: "absolute right-1.5 top-1.5", "data-testid": "success-close-button", children: /* @__PURE__ */ a(Rr, { onClick: t }) }),
+     /* @__PURE__ */ d("div", { className: "flex items-center justify-center gap-1", children: [
+       /* @__PURE__ */ d("span", { children: [
+-        /* @__PURE__ */ a("b", { children: "Great!" }),
++        /* @__PURE__ */ a("b", { children: "Harika!" }),
+         " The short URL is ",
+         /* @__PURE__ */ a("b", { children: s })
+       ] }),
+@@ -2941,7 +2941,7 @@ const ir = () => {
+       }
+     ),
+     m && f && /* @__PURE__ */ a(ie, { variant: "error", children: /* @__PURE__ */ a(xe, { errorData: C, fallbackMessage: "An error occurred while updating short URL :(" }) }),
+-    m && !f && /* @__PURE__ */ a(ie, { variant: "success", children: "Short URL properly edited." })
++    m && !f && /* @__PURE__ */ a(ie, { variant: "success", children: "Kısa URL başarıyla düzenlendi." })
+   ] });
+ }, fd = X(go, ["ShortUrlForm"]), yr = "delete", pd = ({
+   shortUrl: e,
+@@ -2964,19 +2964,19 @@ const ir = () => {
+     Ae,
+     {
+       open: r,
+-      title: "Delete short URL",
++      title: "Kısa URL'yi Sil",
+       variant: "danger",
+-      confirmText: u ? "Deleting..." : "Delete",
++      confirmText: u ? "Siliniyor..." : "Delete",
+       confirmDisabled: c !== yr || u,
+       onConfirm: C,
+       onClose: f,
+       onClosed: () => h && i(e),
+       children: /* @__PURE__ */ d("div", { className: "flex flex-col gap-y-2", children: [
+         /* @__PURE__ */ d("p", { children: [
+-          /* @__PURE__ */ a("b", { className: "text-danger", children: "Caution!" }),
++          /* @__PURE__ */ a("b", { className: "text-danger", children: "Dikkat!" }),
+           " You are about to delete a short URL."
+         ] }),
+-        /* @__PURE__ */ a("p", { children: "This action cannot be undone. Once you have deleted it, all the visits stats will be lost." }),
++        /* @__PURE__ */ a("p", { children: "Bu işlem geri alınamaz. Sildikten sonra tüm ziyaret istatistikleri kaybolacaktır." }),
+         /* @__PURE__ */ a(
+           He,
+           {
+@@ -3156,7 +3156,7 @@ const ir = () => {
+       ]
+     }
+   );
+-}, Rd = ({ tags: e, onTagClick: t, colorGenerator: r }) => e.length === 0 ? /* @__PURE__ */ a("i", { className: "whitespace-nowrap", children: /* @__PURE__ */ a("small", { children: "No tags" }) }) : /* @__PURE__ */ a("div", { className: "inline-flex flex-wrap gap-1 items-center", children: e.map((n) => /* @__PURE__ */ a(
++}, Rd = ({ tags: e, onTagClick: t, colorGenerator: r }) => e.length === 0 ? /* @__PURE__ */ a("i", { className: "whitespace-nowrap", children: /* @__PURE__ */ a("small", { children: "Etiket yok" }) }) : /* @__PURE__ */ a("div", { className: "inline-flex flex-wrap gap-1 items-center", children: e.map((n) => /* @__PURE__ */ a(
+   cr,
+   {
+     text: n,
+@@ -3169,12 +3169,12 @@ const ir = () => {
+   return K(() => {
+     c.current || i(), c.current = !1;
+   }, [e.visitsSummary.total, e.visitsSummary.nonBots, i]), /* @__PURE__ */ d(S.Row, { className: "relative", children: [
+-    /* @__PURE__ */ a(S.Cell, { className: "whitespace-nowrap", columnName: "Created at:", children: /* @__PURE__ */ a(_t, { date: e.dateCreated }) }),
++    /* @__PURE__ */ a(S.Cell, { className: "whitespace-nowrap", columnName: "Oluşturulma tarihi:", children: /* @__PURE__ */ a(_t, { date: e.dateCreated }) }),
+     /* @__PURE__ */ a(S.Cell, { columnName: "Short URL:", children: /* @__PURE__ */ d("span", { className: "lg:whitespace-nowrap inline-flex items-center gap-x-2", children: [
+       /* @__PURE__ */ a(pe, { href: e.shortUrl, className: "max-md:break-all lg:truncate max-w-72" }),
+       /* @__PURE__ */ a(ua, { text: e.shortUrl })
+     ] }) }),
+-    /* @__PURE__ */ a(S.Cell, { className: "break-all", columnName: `${e.title ? "Title" : "Long URL"}:`, children: /* @__PURE__ */ a(pe, { href: e.longUrl, children: e.title ?? e.longUrl }) }),
++    /* @__PURE__ */ a(S.Cell, { className: "break-all", columnName: `${e.title ? "Başlık" : "Uzun URL"}:`, children: /* @__PURE__ */ a(pe, { href: e.longUrl, children: e.title ?? e.longUrl }) }),
+     e.title && /* @__PURE__ */ a(S.Cell, { className: "break-all [&]:lg:hidden", columnName: "Long URL:", children: /* @__PURE__ */ a(pe, { href: e.longUrl }) }),
+     /* @__PURE__ */ a(S.Cell, { columnName: "Tags:", children: /* @__PURE__ */ a(Rd, { tags: e.tags, colorGenerator: n, onTagClick: t }) }),
+     /* @__PURE__ */ a(S.Cell, { className: "lg:text-right", columnName: "Visits:", children: /* @__PURE__ */ a(
+@@ -3194,7 +3194,7 @@ const ir = () => {
+           asLink: !0,
+           shortUrl: e,
+           suffix: "redirect-rules",
+-          title: "This short URL has dynamic redirect rules",
++          title: "Bu kısa URL'nin dinamik yönlendirme kuralları var",
+           children: /* @__PURE__ */ a(b, { icon: Ra })
+         }
+       )
+@@ -3462,9 +3462,9 @@ const bd = jr(({
+           /* @__PURE__ */ d("div", { className: "flex flex-col gap-2", children: [
+             /* @__PURE__ */ a(Ii, { format: h, onChange: (I) => f({ format: I }) }),
+             /* @__PURE__ */ d("div", { className: "flex items-center gap-2", children: [
+-              /* @__PURE__ */ a(_, { onClick: j, "aria-label": "Copy data URI", title: "Copy data URI", className: "h-full", children: /* @__PURE__ */ a(b, { icon: V ? gt : zi }) }),
++              /* @__PURE__ */ a(_, { onClick: j, "aria-label": "Veri URI'sini kopyala", title: "Veri URI'sini kopyala", className: "h-full", children: /* @__PURE__ */ a(b, { icon: V ? gt : zi }) }),
+               /* @__PURE__ */ d(_, { solid: !0, onClick: x, className: "grow", children: [
+-                "Download ",
++                "İndir ",
+                 /* @__PURE__ */ a(b, { icon: di })
+               ] })
+             ] })
+@@ -3507,15 +3507,15 @@ const bd = jr(({
+       ] }),
+       /* @__PURE__ */ d(q.Item, { to: C("edit"), className: "gap-1.5", children: [
+         /* @__PURE__ */ a(b, { icon: ya }),
+-        " Edit short URL"
++        " Kısa URL'yi Düzenle"
+       ] }),
+       /* @__PURE__ */ d(q.Item, { to: C("redirect-rules"), className: "gap-1.5", children: [
+         /* @__PURE__ */ a(b, { icon: Ra }),
+-        " Manage redirect rules"
++        " Yönlendirme Kurallarını Yönet"
+       ] }),
+       /* @__PURE__ */ d(q.Item, { onClick: s, className: "gap-1.5", children: [
+         /* @__PURE__ */ a(b, { icon: ui }),
+-        " QR code"
++        " QR kod"
+       ] }),
+       /* @__PURE__ */ a(q.Separator, {}),
+       /* @__PURE__ */ d(
+@@ -3525,7 +3525,7 @@ const bd = jr(({
+           onClick: h ? l : m,
+           children: [
+             /* @__PURE__ */ a(b, { icon: gi }),
+-            " Delete short URL"
++            " Kısa URL'yi Sil"
+           ]
+         }
+       )
+@@ -3626,7 +3626,7 @@ const bd = jr(({
+       De,
+       {
+         value: t ?? "",
+-        placeholder: "Domain",
++        placeholder: "Alan Adı",
+         onChange: (u) => r(u.target.value),
+         className: "flex-grow rounded-r-none [&]:border-r-0"
+       }
+@@ -3638,7 +3638,7 @@ const bd = jr(({
+         type: "button",
+         className: "rounded-l-none",
+         "aria-label": "Back to domains list",
+-        title: "Existing domains",
++        title: "Mevcut alan adları",
+         onClick: c,
+         children: /* @__PURE__ */ a(b, { icon: hi })
+       }
+@@ -3646,7 +3646,7 @@ const bd = jr(({
+   ] }) : /* @__PURE__ */ d(
+     U,
+     {
+-      buttonContent: i ? "Domain" : `Domain: ${t}`,
++      buttonContent: i ? "Alan Adı" : `Domain: ${t}`,
+       buttonClassName: A("w-full", { "text-placeholder": i }),
+       children: [
+         e.map(({ domain: u, isDefault: g }) => /* @__PURE__ */ d(
+@@ -3657,13 +3657,13 @@ const bd = jr(({
+             className: "flex justify-between items-center",
+             children: [
+               u,
+-              g && /* @__PURE__ */ a($r, { children: "default" })
++              g && /* @__PURE__ */ a($r, { children: "varsayılan" })
+             ]
+           },
+           u
+         )),
+         /* @__PURE__ */ a(U.Separator, {}),
+-        /* @__PURE__ */ a(U.Item, { onClick: l, children: /* @__PURE__ */ a("i", { children: "New domain" }) })
++        /* @__PURE__ */ a(U.Item, { onClick: l, children: /* @__PURE__ */ a("i", { children: "Yeni alan adı" }) })
+       ]
+     }
+   );
+@@ -3713,23 +3713,23 @@ const bd = jr(({
+ ] }), Bd = (e) => /* @__PURE__ */ a(Ae, { ...e, title: "Info", size: "lg", children: /* @__PURE__ */ d("div", { className: "flex flex-col gap-y-2", children: [
+   /* @__PURE__ */ d("p", { children: [
+     "When the ",
+-    /* @__PURE__ */ a("b", { children: /* @__PURE__ */ a("i", { children: '"Use existing URL if found"' }) }),
++    /* @__PURE__ */ a("b", { children: /* @__PURE__ */ a("i", { children: '"Mevcut URL bulunursa kullan"' }) }),
+     " checkbox is checked, the server will return an existing short URL if it matches provided params."
+   ] }),
+-  /* @__PURE__ */ a("p", { children: "These are the checks performed by Shlink in order to determine if an existing short URL should be returned:" }),
++  /* @__PURE__ */ a("p", { children: "Mevcut bir kısa URL'nin döndürülüp döndürülmeyeceğini belirlemek için Shlink tarafından yapılan kontroller:" }),
+   /* @__PURE__ */ d("ul", { className: "list-disc pl-5", children: [
+-    /* @__PURE__ */ a("li", { children: "When only the long URL is provided: The most recent match will be returned, or a new short URL will be created if none is found." }),
++    /* @__PURE__ */ a("li", { children: "Yalnızca uzun URL sağlandığında: En son eşleşme döndürülür veya hiçbiri bulunamazsa yeni bir kısa URL oluşturulur." }),
+     /* @__PURE__ */ d("li", { children: [
+-      "When long URL and custom slug and/or domain are provided: Same as in previous case, but it will try to match the short URL using both the long URL and the slug, the long URL and the domain, or the three of them.",
++      "Uzun URL ve özel kısa kod ve/veya alan adı sağlandığında: Önceki durumla aynı, ancak hem uzun URL ve kısa kodu, uzun URL ve alan adını veya üçünü birden kullanarak kısa URL'yi eşleştirmeye çalışır.",
+       /* @__PURE__ */ a("br", {}),
+-      "If the slug is being used by another long URL, an error will be returned."
++      "Kısa kod başka bir uzun URL tarafından kullanılıyorsa, hata döndürülür."
+     ] }),
+-    /* @__PURE__ */ a("li", { children: "When other params are provided: Same as in previous cases, but it will try to match existing short URLs with all provided data. If any of them does not match, a new short URL will be created" })
++    /* @__PURE__ */ a("li", { children: "Diğer parametreler sağlandığında: Önceki durumlarda olduğu gibi, ancak sağlanan tüm verilerle mevcut kısa URL'leri eşleştirmeye çalışır. Herhangi biri eşleşmezse, yeni bir kısa URL oluşturulur" })
+   ] })
+ ] }) }), Gd = () => {
+   const { flag: e, setToFalse: t, setToTrue: r } = re();
+   return /* @__PURE__ */ d(E, { children: [
+-    /* @__PURE__ */ a(rt, { title: "What does this mean?", onClick: r, children: /* @__PURE__ */ a(b, { icon: er }) }),
++    /* @__PURE__ */ a(rt, { title: "Bu ne anlama geliyor?", onClick: r, children: /* @__PURE__ */ a(b, { icon: er }) }),
+     /* @__PURE__ */ a(Bd, { open: e, onClose: t })
+   ] });
+ }, Lt = (e) => typeof e == "string" ? Fe(e) : e, jd = (e) => "shortCodeLength" in e && "customSlug" in e && "domain" in e, wo = ({ basicMode: e = !1, saving: t, onSave: r, initialState: n, tagsList: o, domainsList: s }) => {
+@@ -3740,7 +3740,7 @@ const bd = jr(({
+       {
+         size: "lg",
+         type: "url",
+-        placeholder: "URL to be shortened",
++        placeholder: "Kısaltılacak URL",
+         required: !0,
+         value: c.longUrl,
+         onChange: (p) => l((v) => ({ ...v, longUrl: p.target.value }))
+@@ -3751,7 +3751,7 @@ const bd = jr(({
+         De,
+         {
+           size: "lg",
+-          placeholder: "Custom slug",
++          placeholder: "Özel kısa kod",
+           value: c.customSlug ?? "",
+           onChange: (p) => l((v) => ({ ...v, customSlug: p.target.value }))
+         }
+@@ -3762,7 +3762,7 @@ const bd = jr(({
+           tags: o.tags,
+           selectedTags: c.tags ?? [],
+           onChange: m,
+-          placeholder: "Add tags to the URL"
++          placeholder: "URL'ye etiket ekle"
+         }
+       ) })
+     ] })
+@@ -3770,19 +3770,19 @@ const bd = jr(({
+   return /* @__PURE__ */ d("form", { name: "shortUrlForm", onSubmit: f, className: "flex flex-col gap-4", children: [
+     e && C,
+     !e && /* @__PURE__ */ d(E, { children: [
+-      /* @__PURE__ */ a("div", { children: /* @__PURE__ */ a("div", { className: "w-full", children: /* @__PURE__ */ a(Y, { title: "Main options", className: "card", children: C }) }) }),
++      /* @__PURE__ */ a("div", { children: /* @__PURE__ */ a("div", { className: "w-full", children: /* @__PURE__ */ a(Y, { title: "Ana seçenekler", className: "card", children: C }) }) }),
+       /* @__PURE__ */ d("div", { className: "flex flex-col sm:flex-row gap-4", children: [
+         /* @__PURE__ */ a("div", { className: "w-full sm:w-1/2", children: /* @__PURE__ */ d(
+           Y,
+           {
+-            title: "Customize the short URL",
++            title: "Kısa URL'yi özelleştir",
+             bodyClassName: "flex flex-col gap-4",
+             className: "card h-full",
+             children: [
+               /* @__PURE__ */ a(
+                 De,
+                 {
+-                  placeholder: "Title",
++                  placeholder: "Başlık",
+                   value: c.title ?? "",
+                   onChange: ({ target: p }) => l((v) => ({
+                     ...v,
+@@ -3795,7 +3795,7 @@ const bd = jr(({
+                   /* @__PURE__ */ a("div", { className: "lg:w-1/2", children: /* @__PURE__ */ a(
+                     De,
+                     {
+-                      placeholder: "Custom slug",
++                      placeholder: "Özel kısa kod",
+                       value: c.customSlug ?? "",
+                       onChange: (p) => l((v) => ({ ...v, customSlug: p.target.value })),
+                       disabled: Ge(c.shortCodeLength)
+@@ -3805,7 +3805,7 @@ const bd = jr(({
+                     De,
+                     {
+                       type: "number",
+-                      placeholder: "Short code length",
++                      placeholder: "Kısa kod uzunluğu",
+                       value: c.shortCodeLength ?? "",
+                       onChange: (p) => l((v) => ({ ...v, shortCodeLength: p.target.value })),
+                       min: 4,
+@@ -3828,7 +3828,7 @@ const bd = jr(({
+         /* @__PURE__ */ a("div", { className: "w-full sm:w-1/2", children: /* @__PURE__ */ d(
+           Y,
+           {
+-            title: "Limit access to the short URL",
++            title: "Kısa URL erişimini sınırla",
+             className: "card h-full",
+             bodyClassName: "flex flex-col gap-y-4",
+             children: [
+@@ -3836,7 +3836,7 @@ const bd = jr(({
+                 /* @__PURE__ */ a("div", { className: "lg:w-1/2", children: /* @__PURE__ */ a(
+                   Wt,
+                   {
+-                    label: "Enabled since",
++                    label: "Başlangıç tarihi",
+                     withTime: !0,
+                     maxDate: c.validUntil ? Lt(c.validUntil) : void 0,
+                     value: c.validSince ? Lt(c.validSince) : null,
+@@ -3846,7 +3846,7 @@ const bd = jr(({
+                 /* @__PURE__ */ a("div", { className: "lg:w-1/2", children: /* @__PURE__ */ a(
+                   Wt,
+                   {
+-                    label: "Enabled until",
++                    label: "Bitiş tarihi",
+                     withTime: !0,
+                     minDate: c.validSince ? Lt(c.validSince) : void 0,
+                     value: c.validUntil ? Lt(c.validUntil) : null,
+@@ -3857,7 +3857,7 @@ const bd = jr(({
+               /* @__PURE__ */ a(
+                 He,
+                 {
+-                  label: "Maximum visits allowed:",
++                  label: "İzin verilen maksimum ziyaret:",
+                   type: "number",
+                   min: 1,
+                   placeholder: "25...",
+@@ -3873,7 +3873,7 @@ const bd = jr(({
+         ) })
+       ] }),
+       /* @__PURE__ */ d("div", { className: "flex flex-col sm:flex-row gap-4", children: [
+-        u && /* @__PURE__ */ a("div", { className: "w-full sm:w-1/2", children: /* @__PURE__ */ a(Y, { title: "Extra checks", className: "h-full", children: /* @__PURE__ */ d("p", { className: "inline-flex items-center gap-x-2", children: [
++        u && /* @__PURE__ */ a("div", { className: "w-full sm:w-1/2", children: /* @__PURE__ */ a(Y, { title: "Ek kontroller", className: "h-full", children: /* @__PURE__ */ d("p", { className: "inline-flex items-center gap-x-2", children: [
+           /* @__PURE__ */ d(ma, { className: "inline-flex items-center gap-x-1.5", children: [
+             /* @__PURE__ */ a(
+               fa,
+@@ -3882,33 +3882,33 @@ const bd = jr(({
+                 onChange: (p) => l((v) => ({ ...v, findIfExists: p }))
+               }
+             ),
+-            "Use existing URL if found"
++            "Mevcut URL bulunursa kullan"
+           ] }),
+           /* @__PURE__ */ a(Gd, {})
+         ] }) }) }),
+-        /* @__PURE__ */ a("div", { className: A("w-full", { "sm:w-1/2": u }), children: /* @__PURE__ */ d(Y, { title: "Configure behavior", children: [
++        /* @__PURE__ */ a("div", { className: A("w-full", { "sm:w-1/2": u }), children: /* @__PURE__ */ d(Y, { title: "Davranışı yapılandır", children: [
+           /* @__PURE__ */ a(
+             _n,
+             {
+-              infoTooltip: "This short URL will be included in the robots.txt for your Shlink instance, allowing web crawlers (like Google) to index it.",
++              infoTooltip: "Bu kısa URL, Shlink örneğinizin robots.txt dosyasına dahil edilecek ve web tarayıcılarının (Google gibi) indekslemesine izin verecektir.",
+               checked: c.crawlable,
+               onChange: (p) => l((v) => ({ ...v, crawlable: p })),
+-              children: "Make it crawlable"
++              children: "Taranabilir yap"
+             }
+           ),
+           /* @__PURE__ */ a(
+             _n,
+             {
+-              infoTooltip: "When this short URL is visited, any query params appended to it will be forwarded to the long URL.",
++              infoTooltip: "Bu kısa URL ziyaret edildiğinde, ona eklenen tüm sorgu parametreleri uzun URL'ye iletilecektir.",
+               checked: c.forwardQuery,
+               onChange: (p) => l((v) => ({ ...v, forwardQuery: p })),
+-              children: "Forward query params on redirect"
++              children: "Yönlendirmede sorgu parametrelerini ilet"
+             }
+           )
+         ] }) })
+       ] })
+     ] }),
+-    /* @__PURE__ */ a("div", { className: "text-center", children: /* @__PURE__ */ a(_, { type: "submit", inline: !0, solid: !0, disabled: t || !c.longUrl, className: "max-md:w-full", children: t ? "Saving..." : "Save" }) })
++    /* @__PURE__ */ a("div", { className: "text-center", children: /* @__PURE__ */ a(_, { type: "submit", inline: !0, solid: !0, disabled: t || !c.longUrl, className: "max-md:w-full", children: t ? "Kaydediliyor..." : "Kaydet" }) })
+   ] });
+ }, Hd = X(wo, ["TagsSelector"]), No = ({ domains: e, value: t, onChange: r }) => {
+   const n = !t, o = t === Ee ? e.find(({ isDefault: i }) => i)?.domain : t, s = D((i) => {
+@@ -3935,7 +3935,7 @@ const bd = jr(({
+             className: "flex justify-between items-center",
+             children: [
+               i,
+-              c && /* @__PURE__ */ a($r, { children: "default" })
++              c && /* @__PURE__ */ a($r, { children: "varsayılan" })
+             ]
+           },
+           i
+@@ -3947,7 +3947,7 @@ const bd = jr(({
+   /* @__PURE__ */ a("div", { className: "flex flex-col", children: /* @__PURE__ */ a(
+     Wt,
+     {
+-      label: "Since",
++      label: "Başlangıç",
+       value: e,
+       maxDate: t ?? void 0,
+       disabled: r,
+@@ -3957,7 +3957,7 @@ const bd = jr(({
+   /* @__PURE__ */ a("div", { className: "flex flex-col", children: /* @__PURE__ */ a(
+     Wt,
+     {
+-      label: "Until",
++      label: "Bitiş",
+       value: t,
+       minDate: e ?? void 0,
+       disabled: r,
+@@ -4049,11 +4049,11 @@ const bd = jr(({
+     }
+   );
+ }, qd = {
+-  dateCreated: "Created at",
+-  shortCode: "Short URL",
+-  longUrl: "Long URL",
+-  title: "Title",
+-  visits: "Visits"
++  dateCreated: "Oluşturulma tarihi",
++  shortCode: "Kısa URL",
++  longUrl: "Uzun URL",
++  title: "Başlık",
++  visits: "Ziyaretler"
+ }, Yd = ({ onChange: e, selected: t = {} }) => {
+   const { excludeBots: r = !1, excludeMaxVisitsReached: n = !1, excludePastValidUntil: o = !1 } = t, s = Number(r) + Number(n) + Number(o), i = D(
+     (l) => e({ ...t, ...l }),
+@@ -4066,7 +4066,7 @@ const bd = jr(({
+     U,
+     {
+       buttonContent: /* @__PURE__ */ d("span", { children: [
+-        "More",
++        "Daha Fazla",
+         s > 0 ? /* @__PURE__ */ d("b", { children: [
+           " (",
+           s,
+@@ -4093,7 +4093,7 @@ const bd = jr(({
+               excludePastValidUntil: void 0
+             }),
+             className: "italic",
+-            children: "Reset to defaults"
++            children: "Varsayılanlara sıfırla"
+           }
+         )
+       ]
+@@ -4145,7 +4145,7 @@ const bd = jr(({
+               /* @__PURE__ */ a("div", { className: "grow", children: /* @__PURE__ */ a(
+                 on,
+                 {
+-                  defaultText: "All short URLs",
++                  defaultText: "Tüm kısa URL'ler",
+                   dateRangeOrInterval: L ?? To(f, C),
+                   onDatesChange: P
+                 }
+@@ -4154,8 +4154,8 @@ const bd = jr(({
+                 /* @__PURE__ */ a(
+                   c,
+                   {
+-                    title: "Filter by tag",
+-                    prefix: "With",
++                    title: "Etikete göre filtrele",
++                    prefix: "İle",
+                     tags: o.tags,
+                     selectedTags: u,
+                     onTagsChange: F,
+@@ -4167,8 +4167,8 @@ const bd = jr(({
+                 j && /* @__PURE__ */ a(
+                   c,
+                   {
+-                    title: "Filter by excluded tag",
+-                    prefix: "Without",
++                    title: "Hariç tutulan etikete göre filtrele",
++                    prefix: "Hariç",
+                     tags: o.tags,
+                     selectedTags: h,
+                     onTagsChange: H,
+@@ -4325,7 +4325,7 @@ const Zd = ({ paginator: e, currentQueryString: t = "" }) => {
+   ] });
+ }, () => [he.visits]), tu = X(Lo, ["ShortUrlsTable", "ShortUrlsFilteringBar"]), Dr = ({ children: e, danger: t }) => /* @__PURE__ */ a(S.Row, { children: /* @__PURE__ */ a(S.Cell, { colSpan: 6, className: A("text-center", { "text-danger font-bold": t }), children: e }) }), ru = ({ shortUrlsList: e, onTagClick: t, ShortUrlsRow: r }) => {
+   const { error: n, loading: o, shortUrls: s } = e;
+-  return n ? /* @__PURE__ */ a(Dr, { danger: !0, children: "Something went wrong while loading short URLs :(" }) : o ? /* @__PURE__ */ a(Dr, { children: "Loading..." }) : !s || s.data.length === 0 ? /* @__PURE__ */ a(Dr, { children: "No results found" }) : s?.data.map((i) => /* @__PURE__ */ a(
++  return n ? /* @__PURE__ */ a(Dr, { danger: !0, children: "Kısa URL'ler yüklenirken bir şeyler ters gitti :(" }) : o ? /* @__PURE__ */ a(Dr, { children: "Yükleniyor..." }) : !s || s.data.length === 0 ? /* @__PURE__ */ a(Dr, { children: "Sonuç bulunamadı" }) : s?.data.map((i) => /* @__PURE__ */ a(
+     r,
+     {
+       shortUrl: i,
+@@ -4346,7 +4346,7 @@ const Zd = ({ paginator: e, currentQueryString: t = "" }) => {
+       className: "mb-[-1px] w-full",
+       header: /* @__PURE__ */ d(S.Row, { children: [
+         /* @__PURE__ */ d(S.Cell, { className: s, onClick: e?.("dateCreated"), children: [
+-          "Created at ",
++          "Oluşturulma: ",
+           t?.("dateCreated")
+         ] }),
+         /* @__PURE__ */ d(S.Cell, { className: s, onClick: e?.("shortCode"), children: [
+@@ -4360,12 +4360,12 @@ const Zd = ({ paginator: e, currentQueryString: t = "" }) => {
+           ] }),
+           "  /  ",
+           /* @__PURE__ */ d(rt, { className: A("p-0", s), onClick: e?.("longUrl"), children: [
+-            /* @__PURE__ */ a("span", { className: "whitespace-nowrap", children: "Long URL" }),
++            /* @__PURE__ */ a("span", { className: "whitespace-nowrap", children: "Uzun URL" }),
+             " ",
+             t?.("longUrl")
+           ] })
+         ] }),
+-        /* @__PURE__ */ a(S.Cell, { children: "Tags" }),
++        /* @__PURE__ */ a(S.Cell, { children: "Etiketler" }),
+         /* @__PURE__ */ a(S.Cell, { className: s, onClick: e?.("visits"), children: /* @__PURE__ */ d("span", { className: "whitespace-nowrap", children: [
+           "Visits ",
+           t?.("visits")
+@@ -4430,7 +4430,7 @@ const Zd = ({ paginator: e, currentQueryString: t = "" }) => {
+       onClose: r,
+       onClosed: v,
+       onConfirm: p,
+-      confirmText: h ? "Saving..." : "Save",
++      confirmText: h ? "Kaydediliyor..." : "Kaydet",
+       confirmDisabled: h,
+       children: [
+         /* @__PURE__ */ d("div", { className: "flex", children: [
+@@ -4440,7 +4440,7 @@ const Zd = ({ paginator: e, currentQueryString: t = "" }) => {
+             {
+               className: "grow [&]:rounded-l-none",
+               value: c,
+-              placeholder: "Tag",
++              placeholder: "Etiket",
+               required: !0,
+               onChange: ({ target: w }) => l(w.value)
+             }
+@@ -4675,9 +4675,9 @@ const Zd = ({ paginator: e, currentQueryString: t = "" }) => {
+     }));
+   }
+ }), Cu = {
+-  tag: "Tag",
++  tag: "Etiket",
+   shortUrls: "Short URLs",
+-  visits: "Visits"
++  visits: "Ziyaretler"
+ }, jo = Ce(({ filterTags: e, tagsList: t }) => {
+   const { TagsTable: r } = W(jo), n = Va(), [o, s] = M(n.tags?.defaultOrdering ?? {}), i = T(() => {
+     const u = t.filteredTags.map((g) => {
+@@ -4799,13 +4799,13 @@ const Zd = ({ paginator: e, currentQueryString: t = "" }) => {
+ }, Nu = X(Ho, ["TagsTableRow"]), bu = ({ tag: e, colorGenerator: t }) => /* @__PURE__ */ a(ur, { color: t.getColorForKey(e) }), $o = ({ tag: e }) => {
+   const { DeleteTagConfirmModal: t, EditTagModal: r, ColorGenerator: n } = W($o), { flag: o, setToFalse: s, setToTrue: i } = re(), { flag: c, setToFalse: l, setToTrue: u } = re(), g = Ne(), h = rr();
+   return /* @__PURE__ */ d(S.Row, { className: "max-lg:relative", children: [
+-    /* @__PURE__ */ d(S.Cell, { columnName: "Tag", children: [
++    /* @__PURE__ */ d(S.Cell, { columnName: "Etiket", children: [
+       /* @__PURE__ */ a(bu, { tag: e.tag, colorGenerator: n }),
+       " ",
+       e.tag
+     ] }),
+     /* @__PURE__ */ a(S.Cell, { className: "lg:text-right", columnName: "Short URLs", children: /* @__PURE__ */ a(ht, { to: `${g}/list-short-urls/1?tags=${encodeURIComponent(e.tag)}`, children: Q(e.shortUrls) }) }),
+-    /* @__PURE__ */ a(S.Cell, { className: "lg:text-right", columnName: "Visits", children: /* @__PURE__ */ a(ht, { to: `${g}/tag/${e.tag}/visits`, children: Q(e.visits) }) }),
++    /* @__PURE__ */ a(S.Cell, { className: "lg:text-right", columnName: "Ziyaretler", children: /* @__PURE__ */ a(ht, { to: `${g}/tag/${e.tag}/visits`, children: Q(e.visits) }) }),
+     /* @__PURE__ */ a(S.Cell, { className: "lg:text-right max-lg:absolute max-lg:top-1.25 max-lg:right-0 max-lg:p-0", children: /* @__PURE__ */ d(q, { menuAlignment: "right", children: [
+       /* @__PURE__ */ d(q.Item, { onClick: u, className: "gap-1.5", children: [
+         /* @__PURE__ */ a(b, { icon: xa }),
+@@ -5293,7 +5293,7 @@ const xt = ({ visits: e, shortUrl: t, children: r, title: n }) => /* @__PURE__ *
+       {
+         filterNull: !0,
+         ...Xo,
+-        formatter: (h, m) => [Q(h), m === "highlightedAmount" ? n : m === "prevAmount" ? "Previous period" : r ? "Non-selected" : "Visits"]
++        formatter: (h, m) => [Q(h), m === "highlightedAmount" ? n : m === "prevAmount" ? "Previous period" : r ? "Non-selected" : "Ziyaretler"]
+       }
+     ),
+     /* @__PURE__ */ a(
+@@ -5552,7 +5552,7 @@ const xt = ({ visits: e, shortUrl: t, children: r, title: n }) => /* @__PURE__ *
+     () => e({ ...t, loadPrevInterval: !c }),
+     [c, e, t]
+   );
+-  return /* @__PURE__ */ d(U, { buttonDisabled: o, buttonContent: "More", buttonClassName: "w-full", menuAlignment: "right", children: [
++  return /* @__PURE__ */ d(U, { buttonDisabled: o, buttonContent: "Daha Fazla", buttonClassName: "w-full", menuAlignment: "right", children: [
+     n && /* @__PURE__ */ d(E, { children: [
+       /* @__PURE__ */ a(U.Item, { selected: c, onClick: g, children: "Compare with previous period" }),
+       /* @__PURE__ */ a(U.Separator, {})
+@@ -5562,9 +5562,9 @@ const xt = ({ visits: e, shortUrl: t, children: r, title: n }) => /* @__PURE__ *
+     r && /* @__PURE__ */ d(E, { children: [
+       /* @__PURE__ */ a(U.Separator, {}),
+       /* @__PURE__ */ a(U.Title, { children: "Orphan visits type:" }),
+-      /* @__PURE__ */ a(U.Item, { ...l("base_url"), children: "Base URL" }),
+-      /* @__PURE__ */ a(U.Item, { ...l("invalid_short_url"), children: "Invalid short URL" }),
+-      /* @__PURE__ */ a(U.Item, { ...l("regular_404"), children: "Regular 404" })
++      /* @__PURE__ */ a(U.Item, { ...l("base_url"), children: "Ana URL" }),
++      /* @__PURE__ */ a(U.Item, { ...l("invalid_short_url"), children: "Geçersiz kısa URL" }),
++      /* @__PURE__ */ a(U.Item, { ...l("regular_404"), children: "Normal 404" })
+     ] }),
+     /* @__PURE__ */ a(U.Separator, {}),
+     /* @__PURE__ */ a(
+@@ -5572,7 +5572,7 @@ const xt = ({ visits: e, shortUrl: t, children: r, title: n }) => /* @__PURE__ *
+       {
+         disabled: t.excludeBots === void 0 && t.loadPrevInterval === void 0 && t.orphanVisitsType === void 0,
+         onClick: () => e({ excludeBots: void 0, loadPrevInterval: void 0, orphanVisitsType: void 0 }),
+-        children: /* @__PURE__ */ a("i", { children: "Reset to defaults" })
++        children: /* @__PURE__ */ a("i", { children: "Varsayılanlara sıfırla" })
+       }
+     )
+   ] });
+@@ -5625,7 +5625,7 @@ const xt = ({ visits: e, shortUrl: t, children: r, title: n }) => /* @__PURE__ *
+         autoFocus: !0,
+         children: [
+           !r && /* @__PURE__ */ a(E, { children: "Click again to confirm" }),
+-          r && /* @__PURE__ */ a(E, { children: "Deleting..." })
++          r && /* @__PURE__ */ a(E, { children: "Siliniyor..." })
+         ]
+       }
+     )
+@@ -5900,7 +5900,7 @@ const xr = ({ display: e }) => e && /* @__PURE__ */ a("div", { className: "mx-au
+     [B]
+   ), Qe = T(() => Lr(ue ?? []), [ue]), Fs = T(
+     () => Object.fromEntries([
+-      ["Visits", Object.assign(B, { type: "main" })],
++      ["Ziyaretler", Object.assign(B, { type: "main" })],
+       ue && ["Previous period", Object.assign(ue, { type: "previous" })],
+       P.length > 0 && [
+         N ?? "Selected",
+@@ -6486,7 +6486,7 @@ const xr = ({ display: e }) => e && /* @__PURE__ */ a("div", { className: "mx-au
+   return e ? /* @__PURE__ */ d("span", { children: [
+     /* @__PURE__ */ a("b", { className: "cursor-default", ...t, children: /* @__PURE__ */ a(_t, { date: e.dateCreated, relative: !0 }) }),
+     /* @__PURE__ */ a(_e, { ...r, children: /* @__PURE__ */ a(_t, { date: e.dateCreated }) })
+-  ] }) : /* @__PURE__ */ a("small", { children: "Loading..." });
++  ] }) : /* @__PURE__ */ a("small", { children: "Yükleniyor..." });
+ }, sh = ({ shortUrl: e, loading: t, shortUrlVisits: r }) => {
+   const { visits: n } = r, o = e?.shortUrl ?? "", s = e?.longUrl ?? "", i = e?.title;
+   return /* @__PURE__ */ d(xt, { title: /* @__PURE__ */ d(E, { children: [
+@@ -6499,8 +6499,8 @@ const xr = ({ display: e }) => e && /* @__PURE__ */ a("div", { className: "mx-au
+       /* @__PURE__ */ a(oh, { shortUrl: e })
+     ] }),
+     /* @__PURE__ */ d("div", { "data-testid": "long-url-container", children: [
+-      `${i ? "Title" : "Long URL"}: `,
+-      t && /* @__PURE__ */ a("small", { children: "Loading..." }),
++      `${i ? "Başlık" : "Uzun URL"}: `,
++      t && /* @__PURE__ */ a("small", { children: "Yükleniyor..." }),
+       !t && /* @__PURE__ */ a(pe, { href: s, children: i ?? s })
+     ] })
+   ] });
+@@ -6948,23 +6948,23 @@ const xr = ({ display: e }) => e && /* @__PURE__ */ a("div", { className: "mx-au
+       children: /* @__PURE__ */ d("nav", { className: "flex flex-col h-full", children: [
+         /* @__PURE__ */ d(lt, { to: n("/overview"), children: [
+           /* @__PURE__ */ a(b, { icon: Ri }),
+-          "Overview"
++          "Genel Bakış"
+         ] }),
+         /* @__PURE__ */ d(lt, { to: n("/list-short-urls/1"), active: r.match("/list-short-urls") !== null, children: [
+           /* @__PURE__ */ a(b, { icon: Gr }),
+-          "List short URLs"
++          "Kısa URL'leri Listele"
+         ] }),
+         /* @__PURE__ */ d(lt, { to: n("/create-short-url"), children: [
+           /* @__PURE__ */ a(b, { icon: wi, flip: "horizontal" }),
+-          "Create short URL"
++          "Kısa URL Oluştur"
+         ] }),
+         /* @__PURE__ */ d(lt, { to: n("/manage-tags"), children: [
+           /* @__PURE__ */ a(b, { icon: wa }),
+-          "Manage tags"
++          "Etiketleri Yönet"
+         ] }),
+         /* @__PURE__ */ d(lt, { to: n("/manage-domains"), children: [
+           /* @__PURE__ */ a(b, { icon: Ni }),
+-          "Manage domains"
++          "Alan Adlarını Yönet"
+         ] })
+       ] })
+     }

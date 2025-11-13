@@ -25,18 +25,19 @@ const ServerError: FCWithDeps<ServerErrorProps, ServerErrorDeps> = ({ servers, s
     <NoMenuLayout>
       <div className="flex flex-col items-center gap-y-4 md:gap-y-8">
         <Message className="w-full lg:w-[80%]" variant="error">
-          {!isServerWithId(selectedServer) && 'Could not find this Shlink server.'}
+          {!isServerWithId(selectedServer) && 'Bu ElleShoes sunucusu bulunamadı.'}
           {isServerWithId(selectedServer) && (
             <>
-              <p>Oops! Could not connect to this Shlink server.</p>
-              Make sure you have internet connection, and the server is properly configured and on-line.
+              <p>Hay aksi! Bu ElleShoes sunucusuna bağlanılamadı.</p>
+              İnternet bağlantınızın olduğundan ve sunucunun düzgün yapılandırılmış ve çevrimiçi olduğundan emin
+              olun.
             </>
           )}
         </Message>
 
         <p className="text-xl">
-          These are the Shlink servers currently configured. Choose one of
-          them or <Link to="/server/create">add a new one</Link>.
+          Bunlar şu anda yapılandırılmış ElleShoes sunucularıdır. Bunlardan birini seçin
+          veya <Link to="/server/create">yeni bir tane ekleyin</Link>.
         </p>
         <Card className="w-full max-w-100 overflow-hidden">
           <ServersListGroup borderless servers={Object.values(servers)} />
@@ -44,10 +45,11 @@ const ServerError: FCWithDeps<ServerErrorProps, ServerErrorDeps> = ({ servers, s
 
         {isServerWithId(selectedServer) && (
           <p className="text-xl">
-            Alternatively, if you think you may have misconfigured this server, you
-            can <DeleteServerButton server={selectedServer}>remove
-              it</DeleteServerButton> or&nbsp;
-            <Link to={`/server/${selectedServer.id}/edit?reconnect=true`}>edit it</Link>.
+            Alternatif olarak, bu sunucuyu yanlış yapılandırdığınızı düşünüyorsanız,{' '}
+            <DeleteServerButton server={selectedServer}>
+              kaldırabilir
+            </DeleteServerButton>{' '}
+            veya <Link to={`/server/${selectedServer.id}/edit?reconnect=true`}>düzenleyebilirsiniz</Link>.
           </p>
         )}
       </div>

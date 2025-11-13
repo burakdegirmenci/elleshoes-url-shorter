@@ -19,19 +19,19 @@ const MainHeader: FCWithDeps<unknown, MainHeaderDeps> = () => {
 
   return (
     <NavBar
-      className="[&]:fixed top-0 z-900"
+      className="[&]:fixed top-0 z-900 shadow-subtle-md"
       brand={(
-        <Link to="/" className="[&]:text-white no-underline flex items-center gap-2">
-          <ShlinkLogo className="w-7" color="white" /> <small className="font-normal">Shlink</small>
+        <Link to="/" className="[&]:text-white no-underline flex items-center gap-2 hover:opacity-90 transition-opacity">
+          <ShlinkLogo className="h-6 w-auto" color="white" /> <small className="font-normal tracking-wide">ElleShoes</small>
         </Link>
       )}
     >
       <NavBar.MenuItem
         to={settingsPath}
         active={pathname.startsWith(settingsPath)}
-        className="flex items-center gap-1.5"
+        className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/10 transition-colors"
       >
-        <FontAwesomeIcon icon={cogsIcon} /> Settings
+        <FontAwesomeIcon icon={cogsIcon} /> Ayarlar
       </NavBar.MenuItem>
       <ServersDropdown />
     </NavBar>

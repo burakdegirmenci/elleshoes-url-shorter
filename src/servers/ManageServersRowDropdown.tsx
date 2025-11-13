@@ -38,17 +38,17 @@ const ManageServersRowDropdown: FCWithDeps<ManageServersRowDropdownConnectProps,
     <>
       <RowDropdown menuAlignment="right">
         <RowDropdown.Item to={serverUrl} className="gap-1.5">
-          <FontAwesomeIcon icon={connectIcon} /> Connect
+          <FontAwesomeIcon icon={connectIcon} /> Bağlan
         </RowDropdown.Item>
         <RowDropdown.Item to={`${serverUrl}/edit`} className="gap-1.5">
-          <FontAwesomeIcon icon={editIcon} /> Edit server
+          <FontAwesomeIcon icon={editIcon} /> Sunucuyu Düzenle
         </RowDropdown.Item>
         <RowDropdown.Item onClick={() => setAutoConnect(server, !isAutoConnect)} className="gap-1.5">
-          <FontAwesomeIcon icon={autoConnectIcon} /> {isAutoConnect ? 'Do not a' : 'A'}uto-connect
+          <FontAwesomeIcon icon={autoConnectIcon} /> {isAutoConnect ? 'Otomatik bağlanma' : 'Otomatik bağlan'}
         </RowDropdown.Item>
         <RowDropdown.Separator />
         <RowDropdown.Item className="[&]:text-danger gap-1.5" onClick={showModal}>
-          <FontAwesomeIcon icon={deleteIcon} /> Remove server
+          <FontAwesomeIcon icon={deleteIcon} /> Sunucuyu Kaldır
         </RowDropdown.Item>
       </RowDropdown>
 

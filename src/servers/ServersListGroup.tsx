@@ -15,13 +15,18 @@ const ServerListItem = ({ id, name }: { id: string; name: string }) => (
     to={`/server/${id}`}
     className={clsx(
       'servers-list__server-item',
-      'flex items-center justify-between gap-x-2 px-4 py-3',
-      'rounded-none hover:bg-lm-secondary hover:dark:bg-dm-secondary',
-      'border-b last:border-0 border-lm-border dark:border-dm-border',
+      'flex items-center justify-between gap-x-3 px-5 py-4',
+      'rounded-none hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50',
+      'dark:hover:from-slate-800 dark:hover:to-slate-900',
+      'border-b last:border-0 border-gray-200 dark:border-slate-700',
+      'transition-all duration-200',
+      'group',
     )}
   >
-    <span className="truncate">{name}</span>
-    <FontAwesomeIcon icon={chevronIcon} />
+    <span className="truncate font-medium text-gray-800 dark:text-gray-200 group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
+      {name}
+    </span>
+    <FontAwesomeIcon icon={chevronIcon} className="text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
   </Link>
 );
 

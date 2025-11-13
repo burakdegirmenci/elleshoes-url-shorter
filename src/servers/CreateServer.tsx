@@ -28,8 +28,8 @@ type CreateServerDeps = {
 const ImportResult = ({ variant }: Pick<ResultProps, 'variant'>) => (
   <div className="mt-4">
     <Result variant={variant}>
-      {variant === 'success' && 'Servers properly imported. You can now select one from the list :)'}
-      {variant === 'error' && 'The servers could not be imported. Make sure the format is correct.'}
+      {variant === 'success' && 'Sunucular başarıyla içe aktarıldı. Şimdi listeden birini seçebilirsiniz :)'}
+      {variant === 'error' && 'Sunucular içe aktarılamadı. Lütfen formatın doğru olduğundan emin olun.'}
     </Result>
   </div>
 );
@@ -67,12 +67,14 @@ const CreateServer: FCWithDeps<CreateServerProps, CreateServerDeps> = ({ servers
 
   return (
     <NoMenuLayout>
-      <ServerForm title="Add new server" onSubmit={onSubmit}>
+      <ServerForm title="Yeni Sunucu Ekle" onSubmit={onSubmit}>
         {!hasServers && (
           <ImportServersBtn tooltipPlacement="top" onImport={setServersImported} onError={setErrorImporting} />
         )}
-        {hasServers && <Button variant="secondary" onClick={goBack}>Cancel</Button>}
-        <Button type="submit">Create server</Button>
+        {hasServers && <Button variant="secondary" onClick={goBack}>İptal</Button>}
+        <Button type="submit" className="rounded-lg px-6 shadow-subtle-md hover:shadow-subtle-lg transition-all">
+          Sunucu Oluştur
+        </Button>
       </ServerForm>
 
       {serversImported && <ImportResult variant="success" />}

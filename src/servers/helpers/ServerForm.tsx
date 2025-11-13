@@ -29,35 +29,51 @@ export const ServerForm: FC<ServerFormProps> = ({ onSubmit, initialValues, child
 
   return (
     <form name="serverForm" onSubmit={handleSubmit}>
-      <SimpleCard className="mb-4" bodyClassName="flex flex-col gap-y-3" title={title}>
-        <LabelledInput label="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-        <LabelledInput label="URL" type="url" value={url} onChange={(e) => setUrl(e.target.value)} required />
+      <SimpleCard className="mb-4 rounded-xl shadow-subtle-lg" bodyClassName="flex flex-col gap-y-4" title={title}>
+        <LabelledInput
+          label="İsim"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <LabelledInput
+          label="URL"
+          type="url"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          required
+        />
         <LabelledRevealablePasswordInput
-          label="API key"
+          label="API Anahtarı"
           value={apiKey}
           onChange={(e) => setApiKey(e.target.value)}
           required
         />
-        <Details summary="Advanced options">
-          <div className="flex flex-col gap-0.5">
-            <Label className="flex items-center gap-x-1.5 cursor-pointer">
+        <Details summary="Gelişmiş Seçenekler" className="mt-2">
+          <div className="flex flex-col gap-2 pt-3">
+            <Label className="flex items-center gap-x-2 cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-800 p-2 rounded-lg transition-colors">
               <Checkbox onChange={toggleForwardCredentials} checked={forwardCredentials} />
-              Forward credentials to this server on every request.
+              <span className="text-sm">Bu sunucuya her istekte kimlik bilgilerini ilet.</span>
             </Label>
-            <small className="pl-5.5 text-gray-600 dark:text-gray-400 mt-0.5">
-              {'"'}Credentials{'"'} here means cookies, TLS client certificates, or authentication headers containing a username
-              and password.
+            <small className="pl-8 text-gray-600 dark:text-gray-400 leading-relaxed">
+              {'"'}Kimlik bilgileri{'"'} terimi burada çerezler, TLS istemci sertifikaları veya kullanıcı adı
+              ve şifre içeren kimlik doğrulama başlıklarını ifade eder.
             </small>
-            <small className="pl-5.5 text-gray-600 dark:text-gray-400">
-              <b>Important!</b> If you are not sure what this means, leave it unchecked. Enabling this option will
-              make all requests fail for Shlink older than v4.5.0, as it requires the server to set a more strict
-              value for <code className="whitespace-nowrap">Access-Control-Allow-Origin</code> than <code>*</code>.
+            <small className="pl-8 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <b>Önemli!</b> Bunun ne anlama geldiğinden emin değilseniz, işaretlenmemiş bırakın. Bu seçeneği
+              etkinleştirmek, sunucunun{' '}
+              <code className="whitespace-nowrap bg-gray-100 dark:bg-slate-700 px-1 py-0.5 rounded">
+                Access-Control-Allow-Origin
+              </code>{' '}
+              için <code className="bg-gray-100 dark:bg-slate-700 px-1 py-0.5 rounded">*</code> değerinden
+              daha katı bir değer ayarlamasını gerektirdiğinden, v4.5.0&apos;dan eski ElleShoes sürümlerinde tüm
+              isteklerin başarısız olmasına neden olacaktır.
             </small>
           </div>
         </Details>
       </SimpleCard>
 
-      <div className="flex items-center justify-end gap-x-2">{children}</div>
+      <div className="flex items-center justify-end gap-x-3">{children}</div>
     </form>
   );
 };

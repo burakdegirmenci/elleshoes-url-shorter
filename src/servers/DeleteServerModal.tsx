@@ -24,19 +24,22 @@ export const DeleteServerModal: FC<DeleteServerModalConnectProps> = ({ server, o
   return (
     <CardModal
       open={open}
-      title="Remove server"
+      title="Sunucuyu Kaldır"
       variant="danger"
       onClose={() => onClose(false)}
       onConfirm={() => onClose(true)}
       onClosed={onClosed}
-      confirmText="Delete"
+      confirmText="Sil"
+      className="rounded-xl"
     >
-      <div className="flex flex-col gap-y-4">
-        <p>Are you sure you want to remove <b>{server ? server.name : ''}</b>?</p>
-        <p>
+      <div className="flex flex-col gap-y-5 p-2">
+        <p className="text-base">
+          <b>{server ? server.name : ''}</b> sunucusunu kaldırmak istediğinizden emin misiniz?
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed bg-gray-50 dark:bg-slate-800 p-4 rounded-lg border-l-4 border-indigo-500">
           <i>
-            No data will be deleted, only the access to this server will be removed from this device.
-            You can create it again at any moment.
+            Hiçbir veri silinmeyecek, yalnızca bu cihazdan bu sunucuya erişim kaldırılacaktır.
+            İstediğiniz zaman yeniden oluşturabilirsiniz.
           </i>
         </p>
       </div>
